@@ -10,8 +10,8 @@ class AxiosCall extends Component {
     this.dataCall();
   }
 
-  dataCall = () => {
-    Axios.get("https://jsonplaceholder.typicode.com/posts").then((res) =>
+  dataCall = async () => {
+    await Axios.get("https://jsonplaceholder.typicode.com/posts").then((res) =>
       this.setState({ axiosData: res.data })
     );
   };
