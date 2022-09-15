@@ -5,16 +5,27 @@ class AxiosCall extends Component {
   state = {
     axiosData: []
   };
+  
 
   componentDidMount() {
-    this.dataCall();
+    this.data();
   }
 
   dataCall = async () => {
-    await Axios.get("https://jsonplaceholder.typicode.com/posts").then((res) =>
+    await Axios.get("https://jsonplaceholder.typicode.com/users").then((res) =>
       this.setState({ axiosData: res.data })
     );
   };
+  
+
+  
+  data = () =>{
+   const data = {
+     firstName:"chandu"
+   }
+   
+    Axios.post("https://jsonplaceholder.typicode.com/users",data).then(res =>console.log(res))
+  }
 
   render() {
     const { axiosData } = this.state;
